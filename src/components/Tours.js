@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs, Tab, Grid, Cell, Card, CardTitle, CardText, CardActions, Button, CardMenu, IconButton } from 'react-mdl';
 
-class Projecttours extends Component {
+class Tours extends Component {
   constructor(props) {
     super();
     this.state = { activeTab: 0 };
@@ -11,7 +11,7 @@ class Projecttours extends Component {
 
     if (this.state.activeTab === 0) {
       return (
-        <div className="projecttours-grid">
+        <div className="tours-grid">
           {/* Image 1 */}
           <Card shadow={5} style={{ minWidth: '450', margin: 'auto' }}>
             <CardTitle style={{ color: '#fff', height: '176px', background: 'url(https://www.cardfool.com/cards/assets/Big%20Wine%20Glass%20Val_cover.jpg) center / cover' }} >Party of 5 - 9/20/20</CardTitle>
@@ -104,4 +104,4 @@ class Projecttours extends Component {
   }
 }
 
-export default Projecttours;
+export default Tours;
