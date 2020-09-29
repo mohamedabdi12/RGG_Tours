@@ -1,35 +1,12 @@
 import React, { Component } from 'react';
-import { Grid, Cell, Textfield } from 'react-mdl';
+import { Grid, Cell } from 'react-mdl';
 
 class Landingpage extends Component {
-  render() {
+    render() {
     return (
       <div style={{ width: '100%', margin: 'auto' }}>
         <Grid className="landing-grid">
           <Cell col={12}>
-            <img
-              src="https://d3jh33bzyw1wep.cloudfront.net/s3/W1siZiIsIjIwMTkvMDYvMTgvMDEvNTAvMDUvOTAwL2ZpbGUiXSxbInAiLCJ0aHVtYiIsIjIwMDB4MTAwMCMiXV0"
-              alt="Security"
-              className="security"
-            />
-
-            <div>{/* Textfield with floating label */}
-              <Textfield
-                onChange={() => { }}
-                label="USERNAME"
-                floatingLabel
-                style={{ width: '200px' }}
-              />
-                  <br></br>
-              {/* Numeric Textfield with floating label */}
-              <Textfield
-                onChange={() => { }}
-                pattern="-?[0-9]*(\.[0-9]+)?"
-                error="Input is not a number!"
-                label="PASSWORD"
-                floatingLabel
-              /></div>
-
             <div className="banner-text">
               <h1>Reds Gold and Greens</h1>
 
@@ -41,7 +18,7 @@ class Landingpage extends Component {
 
               <div className="social-links">
 
-                {/* Booking */}
+                {/* Eventbrite */}
                 <a href="http://eventbrite.com" rel="noopener noreferrer" target="_blank">
                   <i className="fa fa-calendar" aria-hidden="true" />
                 </a>
