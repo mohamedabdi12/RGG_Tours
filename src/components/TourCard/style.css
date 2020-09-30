@@ -1,0 +1,15 @@
+.tour-card {
+  min-width: 450px;
+  margin: auto;
+}
+
+.tour-card .mdl-card__title {
+  color: #fff;
+  min-height: 176px;
+  background-position: center;
+  background-size: cover;
+}
+
+.tour-card .mdl-card__menu {
+  color: #fff;
+}
