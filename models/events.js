@@ -7,20 +7,17 @@ const eventSchema = new mongoose.Schema({
     required: true
   },
   // url string for thumbnail image
-  thumbnail: {
+  description: {
     type: String,
     default: ""
   },
   // url for Event web page - unique index
-  href: {
+  links: {
     type: String,
     default: "",
     unique: true
   },
-
-  // Not all ingredients, just the recommended ingredients from scraped web pages
-  // from which seed data was sourced
-  ingredients: [String]
+  bgImg: []
 });
 
 const Event = mongoose.model("Event", eventSchema);
