@@ -26,7 +26,7 @@ const Booking = (props) => {
 
   return (
     <div style={{ width: '100%', margin: 'auto' }}>
-      <Grid className="landing-grid">
+      <Grid className="booking-grid">
         <Cell col={12}>
           {
             props.user === null ? (
@@ -34,7 +34,7 @@ const Booking = (props) => {
                 <GoogleLogin
                   clientId={clientId}
                   //append client ID to user 
-                  buttonText="Login"
+                  buttonText="Login with Google"
                   onSuccess={onAuthSuccess}
                   onFailure={onAuthFailure}
                   cookiePolicy={'single_host_origin'}
