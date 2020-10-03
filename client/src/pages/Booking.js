@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid, Cell } from 'react-mdl';
 import { GoogleLogin } from 'react-google-login';
-import API from "../utils/API"
-/* import jwt from 'jsonwebtoken'; */
+import API from "../utils/API";
 import BookingForm from "../components/BookingForm";
+
 
 const clientId = "205158470591-frud5g1h9dmquka6n1e3mhju7rglm33i.apps.googleusercontent.com";
 
@@ -30,7 +30,7 @@ const Booking = (props) => {
         <Cell col={12}>
           {
             props.user === null ? (
-              <>
+              <>               
                 <GoogleLogin
                   clientId={clientId}
                   //append client ID to user 
@@ -43,8 +43,8 @@ const Booking = (props) => {
             ) : (
                 <>
                   <h1>Welcome {props.user.name}</h1>
+                  {/* <h2>Logged in as: {props.user.email}</h2> */}
                   <BookingForm />
-                  <h2>Logged in as: {props.user.email}</h2>
                 </>
               )
           }
