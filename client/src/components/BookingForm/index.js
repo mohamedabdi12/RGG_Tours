@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Form';
 import "./style.css";
 
 const BookingForm = () => {
+
     return (
         <div className="bookingForm">
             <Form>
