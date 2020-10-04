@@ -11,13 +11,13 @@ const Booking = (props) => {
   const onAuthSuccess = (res) => {
     console.log(res);
     const { setUser } = props;
-    API.getUser(res.profileObj)
+    API.createUser(res.profileObj)
     //we can use this to get user info from saved token, so they don't have to log in again. -store in browser? local storage or session storage
-    fetch("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" + res.tokenId).then(res => res.json()).then(res => {
-    //   //make a database req to check if user exists; if exists=> signin, if not, find a way to add user to db.
-      API.getUser(res)
-      setUser(res);
-    });
+    // fetch("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" + res.tokenId).then(res => res.json()).then(res => {
+    // //   //make a database req to check if user exists; if exists=> signin, if not, find a way to add user to db.
+    //   API.getUser(res)
+    //   setUser(res);
+    // });
   }
 
   const onAuthFailure = (res) => {
