@@ -6,7 +6,7 @@ const db = require("../db");
 
 passport.use(new GoogleTokenStrategy({
     clientID: process.env.AUTH_GOOGLE_CLIENT_ID,
-    clientSecret: process.env.AUTH_GOOGLE_CLIENT_SECRETE
+    clientSecret: process.env.AUTH_GOOGLE_CLIENT_SECRET
 }, async (accessToken, refreshToken, profileData, done) => {
     try {
         const user = await db.User.findOne({ 'auth.google.id': profileData.id });

@@ -6,6 +6,9 @@ export default {
     getTours: function (region) {
         return axios.get('/api/tours' + (region ? `?region=${region}` : ""));
     },
+    getRegions: function (region) {
+        return axios.get('/api/regions');
+    },
     authenticate: function (user) {
         return axios.post('/api/users', user);
     },

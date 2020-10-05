@@ -5,10 +5,14 @@ const db = require("../db");
 router.get("/tours", async (req, res) => {
   const { region } = req.query;
   const query = {}
-  if (db.Tour.regions.includes(region)) query.region = region;
+  if (db.Tour.isValidRegion(region)) query.region = region;
   console.log(query);
   const tours = await db.Tour.find(query);
   res.status(200).json(tours || []);
+});
+
+router.get("/regions", async (req, res) => {
+  res.status(200).json(db.Tour.regions);
 });
 
 router.get("/bookings",
