@@ -1,13 +1,13 @@
 const passport = require("passport");
 const { Strategy: GoogleTokenStrategy } = require("passport-google-token");
+const { Strategy: JwtStrategy } = require("passport-jwt");
 
 const db = require("../db");
 
 passport.use(new GoogleTokenStrategy({
-    clientID: "205158470591-frud5g1h9dmquka6n1e3mhju7rglm33i.apps.googleusercontent.com",
-    clientSecret: "20"
+    clientID: process.env.AUTH_GOOGLE_CLIENT_ID,
+    clientSecret: process.env.AUTH_GOOGLE_CLIENT_SECRETE
 }, async (accessToken, refreshToken, profileData, done) => {
-    console.log(accessToken, accessToken, profileData)
     try {
         const user = await db.User.findOne({ 'auth.google.id': profileData.id });
         if (!user) {
@@ -22,13 +22,33 @@ passport.use(new GoogleTokenStrategy({
                 }
             });
         }
-        console.log("Upsert Google User:", user);
         done(null, user);
     } catch (err) {
-        console.log("Upsert Google User Err:", err);
         done(err);
     }
-}))
+}));
+passport.use(
+    new JwtStrategy(
+        {
+            jwtFromRequest: req => {
+                if (!req.session.jwt) return null;
+                return req.session.jwt;
+            },
+            secretOrKey: process.env.AUTH_JWT_PRIVATE_KEY,
+            algorithms: ['HS256'],
+            ignoreExpiration: process.env.NODE_ENV !== 'production',
+            passReqToCallback: true,
+        },
+        async (req, payload, done) => {
+            try {
+                const user = await db.User.findById(payload.id);
+                if (!user) return done(null, false);
+                done(null, user);
+            } catch (err) {
+                done(err);
+            }
+        },
+    ),
+);
 
 module.exports = passport;
-//store clientSecret as .env variable ; make sure not to d
