@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
+
+import API from "../utils/API";
 
 import LandingPage from './Landingpage';
 import About from './About';
@@ -9,7 +11,13 @@ import Booking from './Booking';
 
 const PageSwitch = () => {
   const [user, setUser] = useState(null);
+  useEffect(() => {
+    API.currentUser().then(res => {
+      setUser(res.data);
+    }).catch(err => {
 
+    })
+  }, [])
   return (<Switch>
     <Route exact path="/">
       <LandingPage user={user} setUser={setUser} />
