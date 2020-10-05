@@ -1,101 +1,40 @@
-import React, { Component } from 'react';
-import { Tabs, Tab, Grid, Cell} from 'react-mdl';
+import React, { useState, useEffect } from 'react';
+import { Tabs, Tab } from 'react-mdl';
 
-import TourCard from "../components/TourCard";
+import API from "../utils/API";
 
-const tours = [
-  {
-    title: "Party of 5 - 9/20/20",
-    description: "This is some text about a recent wine tour!",
-    bgImg: "https://www.cardfool.com/cards/assets/Big%20Wine%20Glass%20Val_cover.jpg",
-    links: [
-      { text: "Wines", href:"https://www.yahoo.com/"},
-      { text: "Wineries"},
-      { text: "Pics"}
-    ]
-  },
-  {
-    title: "Brewery Tour in Bend 9/25",
-    description: "This is some text about a recent wine tour!",
-    bgImg: "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/11/20/0/fnd_beer-istock.jpg.rend.hgtvcom.616.462.suffix/1448031613421.jpeg",
-    links: [
-      { text: "Breweries"},
-      { text: "Beers"},
-      { text: "Pics"}
-    ]
-  },
-  {
-    title: "Dispensery Tour in NW!!",
-    description: "This is some text about a recent wine tour!",
-    bgImg: "https://www.northernsun.com/images/image16x16/576x576/3702.png",
-    links: [
-      { text: "Wines" },
-      { text: "Beers"},
-      { text: "Pics"}
-    ]
-  }
-]
+import TourGrid from "../components/TourGrid";
 
-class Tours extends Component {
-  constructor(props) {
-    super();
-    this.state = { activeTab: 0 };
-  }
+const Tours = () => {
+  const [regions, setRegions] = useState();
+  const [activeTab, setActiveTab] = useState(0);
+  const [tours, setTours] = useState([]);
 
-  toggleCategories() {
+  useEffect(() => {
+    API.getRegions().then(res => {
+      setRegions(res.data);
+    });
+  }, []);
 
-    if (this.state.activeTab === 0) {
-      return (
-        <div className="tours-grid">
-          {tours.map(({title, description, bgImg, links}) => (<TourCard title={title} description={description} bgImg={bgImg} links={links} />))}
-        </div>
+  useEffect(() =>{
+    if (!regions) return;
+    API.getTours(regions[activeTab].id).then(res => {
+      setTours(() => res.data);
+    });
+  }, [regions, activeTab]);
 
-
-      )
-    } else if (this.state.activeTab === 1) {
-      return (
-        <div className="tours-grid">
-        {tours.map(({title, description, bgImg, links}) => (<TourCard title={title} description={description} bgImg={bgImg} links={links} />))}
-      </div>
-      )
-    } else if (this.state.activeTab === 2) {
-      return (
-        <div className="tours-grid">
-        {tours.map(({title, description, bgImg, links}) => (<TourCard title={title} description={description} bgImg={bgImg} links={links} />))}
-      </div>
-      )
-    } else if (this.state.activeTab === 3) {
-      return (
-        <div className="tours-grid">
-        {tours.map(({title, description, bgImg, links}) => (<TourCard title={title} description={description} bgImg={bgImg} links={links} />))}
-      </div>
-      )
-    }
-
-  }
-
-
-
-  render() {
-    return (
-      <div>
-        <Tabs activeTab={this.state.activeTab} onChange={(tabId) => this.setState({ 
-          activeTab: tabId })} ripple>
-          <Tab>NW Portland</Tab>
-          <Tab>SE Portland</Tab>
-          <Tab>Central OR</Tab>
-          <Tab>Southern OR</Tab>
-        </Tabs>
-        <Grid>
-          <Cell col={12}>
-            <div className="content">{this.toggleCategories()}</div>
-          </Cell>
-        </Grid>
-
-
-      </div>
-    )
-  }
+  return (
+    <div>
+      {
+        !!regions && (
+          <Tabs activeTab={activeTab} onChange={(tabId) => setActiveTab(tabId)} ripple>
+            {regions.map(region => (<Tab key={region.text}>{region.text}</Tab>))}
+          </Tabs>
+        )
+      }
+      <TourGrid tours={tours} />
+    </div>
+  )
 }
 
 export default Tours;

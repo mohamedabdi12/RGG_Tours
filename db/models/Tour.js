@@ -1,12 +1,39 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const regions = ["nw_portland", "se_portland", "central_or", "sothern_or"];
+const regions = [
+    {
+        text: "NW Portland",
+        id: "nw_portland"
+    },
+    {
+        text: "SE Portland",
+        id: "se_portland"
+    },
+    {
+        text: "Central OR",
+        id: "central_or"
+    },
+    {
+        text: "Southern OR",
+        id: "southern_or"
+    }
+]
+
+const linkSchema = new Schema({
+    text: {
+        type: String
+    }, href: {
+        type: String
+    }
+}, {
+    _id: false
+});
 
 const tourSchema = new Schema({
     region: {
         type: String,
-        enum: regions
+        enum: regions.map(({id}) => id)
     },
     title: {
         type: String,
@@ -20,13 +47,7 @@ const tourSchema = new Schema({
         type: String
     },
     links: {
-        type: [{
-            text: {
-                type: String
-            }, href: {
-                type: String
-            }
-        }],
+        type: [linkSchema],
         default: () => []
     }
 },
@@ -41,6 +62,9 @@ const tourSchema = new Schema({
     });
 
 tourSchema.statics.regions = regions
+tourSchema.statics.isValidRegion = function(region) {
+    return regions.some(({id}) => id === region);
+}
 
 const Tour = mongoose.model("Tour", tourSchema);
 module.exports = Tour;

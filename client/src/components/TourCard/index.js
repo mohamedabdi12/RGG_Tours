@@ -16,7 +16,7 @@ const TourCard = (props) => {
             <CardTitle style={{ backgroundImage: `url(${bgImg})` }} >{title}</CardTitle>
             <CardText>{description}</CardText>
             <CardActions border>
-                {links.map(({ text, href }) => (<Button colored>{href ? <a href={href}>{text}</a> : text}</Button>))}
+                {links.map(({ text, href }, i) => (<Button key={title+i} colored>{href ? <a href={href}>{text}</a> : text}</Button>))}
             </CardActions>
             <CardMenu>
                 <IconButton name="share" />
