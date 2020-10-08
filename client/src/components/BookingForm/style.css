@@ -1,0 +1,37 @@
+.bookingForm
+{
+    margin: 15rem;
+    padding: 15rem;
+    display: inline;
+}
+
+.firstname,
+.name,
+.email,
+.number,
+.Address1,
+.Address2,
+.payment
+{
+    margin: 5px;
+    padding: 10px;
+     display: inline-grid;
+     align-items: center;
+}
+
+
+.Button,
+.City,
+.Zip,
+.State{
+    margin: 5px;
+    padding: 10px;
+     display: inline-grid;
+     align-items: center;
+}
+.Container {
+   background-color:rgb(190, 182, 182);
+   border-radius: 25px;
+   margin-left: 70px;
+   margin-right: 70px;
+}
