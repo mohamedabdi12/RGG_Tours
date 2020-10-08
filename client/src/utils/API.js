@@ -1,13 +1,13 @@
 import axios from "axios";
 
-// The getRecipes method retrieves recipes from the server
+// The getTours method retrieves recipes from the server
 // It accepts a "query" or term to search the recipe api for
 export default {
     getTours: function (region) {
-        return axios.get('/api/tours' + (region ? `?region=${region}` : ""));
+        return axios.get('/api/pastTours' + (region ? `?region=${region}` : ""));
     },
     getRegions: function (region) {
-        return axios.get('/api/regions');
+        return axios.get('/api/pastTours/regions');
     },
     authenticate: function (user) {
         return axios.post('/api/users', user);
@@ -19,12 +19,12 @@ export default {
         return axios.post("/api/users/signout", user);
     },
     getBookings: function () {
-        return axios.get("/api/bookings");
+        return axios.get("/api/tourBookings");
     },
-    createBooking: function (tourId) {
-        return axios.post("/api/bookings", { tourId });
+    createBooking: function (bookingInfo) {
+        return axios.post("/api/tourBookings", bookingInfo);
     },
     deleteBooking: function (bookingId) {
-        return axios.delete("/api/bookings/" + bookingId);
+        return axios.delete("/api/tourBookings/" + bookingId);
     }
 };

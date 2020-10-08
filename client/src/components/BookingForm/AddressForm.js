@@ -9,7 +9,7 @@ export default function AddressForm() {
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
-                Shipping address
+                Booking Details
       </Typography>
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
@@ -23,14 +23,37 @@ export default function AddressForm() {
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="lastName"
-                        name="lastName"
-                        label="Last name"
-                        fullWidth
-                        autoComplete="family-name"
-                    />
+                    <form
+                        // className={classes.container}
+                        noValidate>
+                        <TextField
+                            id="date"
+                            label="Booking Date"
+                            type="date"
+                            defaultValue="2017-05-24"
+                            // className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+                    </form>
+                    <form
+                        // className={classes.container}
+                        noValidate>
+                        <TextField
+                            id="time"
+                            label="Alarm clock"
+                            type="time"
+                            defaultValue="07:30"
+                            //className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            inputProps={{
+                                step: 300, // 5 min
+                            }}
+                        />
+                    </form>
                 </Grid>
                 <Grid item xs={12}>
                     <TextField

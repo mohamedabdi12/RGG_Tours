@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 // import AppBar from '@material-ui/core/AppBar';
@@ -66,20 +66,24 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
-function getStepContent(step) {
+function getStepContent(step, setBookingInfo, bookingInfo) {
+
     switch (step) {
         case 0:
-            return <AddressForm />;
+            return <AddressForm setBookingInfo={setBookingInfo} />;
         case 1:
             return <PaymentForm />;
         case 2:
-            return <Review />;
+            return <Review setBookingInfo={setBookingInfo} bookingInfo={bookingInfo} />;
         default:
             throw new Error('Unknown step');
     }
 }
 
 export default function Checkout() {
+
+    const [bookingInfo, setBookingInfo] = useState({})
+
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
 
@@ -126,7 +130,7 @@ export default function Checkout() {
                             </React.Fragment>
                         ) : (
                                 <React.Fragment>
-                                    {getStepContent(activeStep)}
+                                    {getStepContent(activeStep, setBookingInfo, bookingInfo)}
                                     <div className={classes.buttons}>
                                         {activeStep !== 0 && (
                                             <Button onClick={handleBack} className={classes.button}>

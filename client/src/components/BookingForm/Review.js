@@ -1,4 +1,5 @@
 import React from 'react';
+import API from '../../utils/API'
 // import { makeStyles } from '@material-ui/core/styles';
 // import Typography from '@material-ui/core/Typography';
 // import List from '@material-ui/core/List';
@@ -33,11 +34,25 @@ import React from 'react';
 //     },
 // }));
 
-export default function Review() {
+export default function Review({bookingInfo}) {
     // const classes = useStyles();
 
+    function handleSubmit(){
+        console.log('we submited the form');
+        // get the date from booking info
+        const bookingInfo = {
+            bookingDate: new Date(),
+            bookingTime: new Date(),
+            region: 'southern_or',
+            type: 'Winery'
+        }
+        API.createBooking(bookingInfo)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));  
+      }
     return (
         <React.Fragment>
+            <div onClick={handleSubmit}>Submit</div>
             {/* <Typography variant="h6" gutterBottom>
                 Order summary
       </Typography>

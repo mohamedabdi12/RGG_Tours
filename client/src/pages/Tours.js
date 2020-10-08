@@ -22,7 +22,7 @@ const Tours = () => {
       setTours(() => res.data);
     });
   }, [regions, activeTab]);
-
+  console.log('regons are: ', regions);
   return (
     <div>
       {
