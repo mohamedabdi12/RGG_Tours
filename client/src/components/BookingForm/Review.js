@@ -1,5 +1,7 @@
 import React from 'react';
 import API from '../../utils/API'
+import Button from 'react-bootstrap/Button';
+
 // import { makeStyles } from '@material-ui/core/styles';
 // import Typography from '@material-ui/core/Typography';
 // import List from '@material-ui/core/List';
@@ -36,13 +38,13 @@ import API from '../../utils/API'
 
 export default function Review({bookingInfo}) {
     // const classes = useStyles();
-
+    // https://material-ui-pickers.dev/demo/datepicker
     function handleSubmit(){
         console.log('we submited the form');
         // get the date from booking info
         const bookingInfo = {
             bookingDate: new Date(),
-            bookingTime: new Date(),
+            bookingTime: new Date().getHours(),
             region: 'southern_or',
             type: 'Winery'
         }
@@ -52,7 +54,7 @@ export default function Review({bookingInfo}) {
       }
     return (
         <React.Fragment>
-            <div onClick={handleSubmit}>Submit</div>
+            <Button onClick={handleSubmit}>Submit</Button>
             {/* <Typography variant="h6" gutterBottom>
                 Order summary
       </Typography>

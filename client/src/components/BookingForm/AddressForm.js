@@ -1,10 +1,5 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-
+import { Grid, Typography, TextField, FormControlLabel, FormControl, Checkbox, InputLabel, MenuItem, FormHelperText, Select } from '@material-ui/core';
 export default function AddressForm() {
     return (
         <React.Fragment>
@@ -24,36 +19,92 @@ export default function AddressForm() {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <form
+                        // https://material-ui-pickers.dev/demo/datepicker
+
                         // className={classes.container}
                         noValidate>
                         <TextField
                             id="date"
                             label="Booking Date"
                             type="date"
-                            defaultValue="2017-05-24"
+                            defaultValue="2020-10-01"
                             // className={classes.textField}
+                            // onChange={date => handleDateChange(date)}
                             InputLabelProps={{
                                 shrink: true,
                             }}
                         />
                     </form>
-                    <form
-                        // className={classes.container}
-                        noValidate>
-                        <TextField
-                            id="time"
-                            label="Alarm clock"
-                            type="time"
-                            defaultValue="07:30"
-                            //className={classes.textField}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            inputProps={{
-                                step: 300, // 5 min
-                            }}
-                        />
-                    </form>
+                    <Grid item xs={12} sm={6} >
+                        <form
+                            // className={classes.container}
+                            noValidate>
+                            <TextField
+                                id="time"
+                                label="Tour Arrival Time"
+                                type="time"
+                                defaultValue="17:00"
+                                // className={classes.textField}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    step: 300, // 5 min
+                                }}
+                            />
+                        </form>
+                    </Grid>
+                    <Grid item xs={6} sm={3}>
+                        <FormControl
+                            required >
+                            <InputLabel id="demo-simple-select-required-label">Region:</InputLabel>
+                            <br></br>
+                            <br></br>
+                            <Select
+                                labelId="demo-simple-select-required-label"
+                                id="demo-simple-select-required"
+                            // value={type}
+                            // onChange={handleChange}
+                            >
+                                <MenuItem value="">
+                                    <em>Choose Region</em>
+                                </MenuItem>
+                                <MenuItem value={10}>NW Portland</MenuItem>
+                                <MenuItem value={20}>SE Portland</MenuItem>
+                                <MenuItem value={30}>Central Oregon</MenuItem>
+                                <MenuItem value={40}>Southern Oregon</MenuItem>
+                            </Select>
+
+                            <br></br>
+                            <FormHelperText>Required</FormHelperText>
+                        </FormControl>
+                    </Grid>
+                    <Grid item xs={6} sm={3}>
+                        <FormControl
+                            required >
+                            <InputLabel id="demo-simple-select-required-label">Tour Type:</InputLabel>
+                            <br></br>
+                            <br></br>
+                            <Select
+                                labelId="demo-simple-select-required-label"
+                                id="demo-simple-select-required"
+                            // value={type}
+                            // onChange={handleChange}
+                            >
+                                <MenuItem value="">
+                                    <em>Choose Region</em>
+                                </MenuItem>
+                                <MenuItem value={10}>Winery</MenuItem>
+                                <MenuItem value={20}>Brewery</MenuItem>
+                                <MenuItem value={30}>Dispensary</MenuItem>
+                                <MenuItem value={40}>Combo</MenuItem>
+                                <MenuItem value={50}>Surprise Me!</MenuItem>
+                            </Select>
+
+                            <br></br>
+                            <FormHelperText>Required</FormHelperText>
+                        </FormControl>
+                    </Grid>
                 </Grid>
                 <Grid item xs={12}>
                     <TextField

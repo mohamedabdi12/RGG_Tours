@@ -36,7 +36,7 @@ const tourBookingSchema = new Schema({
     },
     type: {
         type: String,
-        enum: ['Winery', 'Brewery', 'Dispensery', "Combo", "Surprise Me"],
+        enum: ['Winery', 'Brewery', 'Dispensary', "Combo", "Surprise Me"],
         required: true
     },
     userId: {
