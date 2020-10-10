@@ -8,16 +8,16 @@ import BookingForm from "../components/BookingForm";
 const clientId = "205158470591-frud5g1h9dmquka6n1e3mhju7rglm33i.apps.googleusercontent.com";
 
 const Booking = (props) => {
-  const onAuthSuccess = (res) => {
-    console.log(res);
+  const onAuthSuccess = async ({accessToken}) => {
     const { setUser } = props;
-    API.getUser(res.profileObj)
-    //we can use this to get user info from saved token, so they don't have to log in again. -store in browser? local storage or session storage
-    fetch("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" + res.tokenId).then(res => res.json()).then(res => {
-    //   //make a database req to check if user exists; if exists=> signin, if not, find a way to add user to db.
-      API.getUser(res)
-      setUser(res);
-    });
+    try {
+      const res = await API.authenticate({ access_token: accessToken })
+      setUser(res.data);
+      console.log("User", res.data);
+    } catch (err) {
+      console.error(err);
+
+    }
   }
 
   const onAuthFailure = (res) => {
@@ -30,7 +30,7 @@ const Booking = (props) => {
         <Cell col={12}>
           {
             props.user === null ? (
-              <>               
+              <>
                 <GoogleLogin
                   clientId={clientId}
                   //append client ID to user 
@@ -42,7 +42,7 @@ const Booking = (props) => {
               </>
             ) : (
                 <>
-                  <h1>Welcome {props.user.name}</h1>
+                  <h1>Welcome {props.user.fullName}</h1>
                   {/* <h2>Logged in as: {props.user.email}</h2> */}
                   <BookingForm />
                 </>

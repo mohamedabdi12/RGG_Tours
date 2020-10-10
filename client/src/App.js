@@ -3,6 +3,7 @@ import './App.css';
 import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
 import PageSwitch from './pages/PageSwitch';
 import { Link } from 'react-router-dom';
+import Form from 'react-bootstrap/Form'
 
 class App extends Component {
   render() {
@@ -26,6 +27,8 @@ class App extends Component {
             </Navigation>
           </Drawer>
           <Content>
+            
+            <Form />
             <div className="page-content" />
             <PageSwitch />
           </Content>
