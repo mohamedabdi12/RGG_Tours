@@ -14,6 +14,12 @@ const app = express();
 
 require("./db");
 
+//nodemailer
+const router = express.Router();
+const nodemailer = require('nodemailer');
+const cors = require('cors');
+const creds = require('./config');
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -44,3 +50,54 @@ app.get("*", function (req, res) {
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+var transport = {
+  host: 'smtp.gmail.com', // SMTP host of email provider
+  port: 587,
+  auth: {
+  user: creds.USER,
+  pass: creds.PASS
+}
+}
+
+var transporter = nodemailer.createTransport(transport)
+
+transporter.verify((error, success) => {
+if (error) {
+  console.log("server.js line 55 error", error);
+} else {
+  console.log('Server is ready to take messages');
+}
+});
+
+router.post('/send', (req, res, next) => {
+var name = req.body.name
+var email = req.body.email
+var message = req.body.message
+var content = `name: ${name} \n email: ${email} \n message: ${message} `
+
+var mail = {
+  from: name,
+  to: 'RGGTours@gmail.com',  //Email address to receive messages
+  subject: 'Contact RGG Tours',
+  text: content
+}
+
+transporter.sendMail(mail, (err, data) => {
+  if (err) {
+    res.json({
+      status: 'fail'
+    })
+  } else {
+    res.json({
+     status: 'success'
+    })
+  }
+})
+})
+
+const contact = express()
+contact.use(cors())
+contact.use(express.json())
+contact.use('/', router)
+contact.listen(3002)
