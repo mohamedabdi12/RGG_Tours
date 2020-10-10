@@ -28,3 +28,5 @@ export default {
         return axios.delete("/api/tourBookings/" + bookingId);
     }
 };
+
+
