@@ -48,7 +48,7 @@
 
 .contact-body {
   margin: auto;
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -56,9 +56,9 @@
 }
 
 .contact-grid {
-  text-align: center;
+  text-align: left;
   justify-content: center;
-  width: 80%;
+  width: 89%;
   height: 550px;
   background: white;
   color: black;
@@ -85,6 +85,11 @@
   padding-right: 5rem;
 }
 
+.btn {
+  align-items: center;
+  background-color:  grey;
+  padding: 10;
+}
 
 /* Landing and About page css */
 
