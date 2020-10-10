@@ -21,6 +21,10 @@ const regions = [
 ]
 
 const tourBookingSchema = new Schema({
+    bookingName: {
+        type: String,
+        required: true
+    },
     bookingDate: {
         type: Date,
         required: true
@@ -29,12 +33,12 @@ const tourBookingSchema = new Schema({
         type: Date,
         required: true
     },
-    region: {
+    bookingRegion: {
         type: String,
         enum: regions.map(({id}) => id),
         required: true
     },
-    type: {
+    bookingType: {
         type: String,
         enum: ['Winery', 'Brewery', 'Dispensary', "Combo", "Surprise Me"],
         required: true

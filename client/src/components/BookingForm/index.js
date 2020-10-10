@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import Checkout from "../BookingForm/CheckoutForm";
+import Checkout from "./CheckoutForm";
 
 
 
