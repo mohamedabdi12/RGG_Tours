@@ -66,5 +66,5 @@ tourSchema.statics.isValidRegion = function(region) {
     return regions.some(({id}) => id === region);
 }
 
-const Tour = mongoose.model("Tour", tourSchema);
+const Tour = mongoose.model("PastTours", tourSchema);
 module.exports = Tour;

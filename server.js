@@ -7,7 +7,7 @@ const cookieSession = require("cookie-session");
 
 const passport = require("./middleware/passport")
 
-const apiRoutes = require("./routes/apiRoutes");
+const apiRoutes = require("./routes/api");
 
 const PORT = process.env.PORT || 3001;
 const app = express();

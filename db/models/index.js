@@ -1,5 +1,5 @@
 module.exports = {
   User: require("./User"),
-  Tour: require("./Tour"),
+  PastTours: require("./PastTours"),
   TourBooking: require("./TourBooking")
 };

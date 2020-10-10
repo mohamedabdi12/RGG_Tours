@@ -116,7 +116,7 @@ const tours = [
 
 (async function () {
   await Promise.all(tours.map(tour => {
-    return db.Tour.create(tour);
+    return db.PastTours.create(tour);
   })
   );
   console.log("Seeding completed");

@@ -15,13 +15,13 @@ const Booking = (props) => {
       setUser(res.data);
       console.log("User", res.data);
     } catch (err) {
-      console.error(err);
+      console.error('error in onAuthSucess: ', err);
 
     }
   }
 
   const onAuthFailure = (res) => {
-    console.log(res);
+    console.log('auth failure returns: ', res);
   }
 
   return (

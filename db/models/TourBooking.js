@@ -1,10 +1,46 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const regions = [
+    {
+        text: "NW Portland",
+        id: "nw_portland"
+    },
+    {
+        text: "SE Portland",
+        id: "se_portland"
+    },
+    {
+        text: "Central OR",
+        id: "central_or"
+    },
+    {
+        text: "Southern OR",
+        id: "southern_or"
+    }
+]
+
 const tourBookingSchema = new Schema({
-    tourId: {
-        type: Schema.Types.ObjectId,
-        ref: "Tour",
+    bookingName: {
+        type: String,
+        required: true
+    },
+    bookingDate: {
+        type: Date,
+        required: true
+    },
+    bookingTime: {
+        type: Date,
+        required: true
+    },
+    bookingRegion: {
+        type: String,
+        enum: regions.map(({id}) => id),
+        required: true
+    },
+    bookingType: {
+        type: String,
+        enum: ['Winery', 'Brewery', 'Dispensary', "Combo", "Surprise Me"],
         required: true
     },
     userId: {
