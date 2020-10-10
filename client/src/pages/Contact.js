@@ -1,13 +1,45 @@
 import React, { Component } from 'react';
 import { Grid, Cell, List, ListItem, ListItemContent } from 'react-mdl';
+import axios from "axios";
+
 
 
 class Contact extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: '',
+        email: '',
+        message: ''
+      }
+    
+
+    handleSubmit(e) {
+      e.preventDefault();
+    
+      axios({
+        method: "POST", 
+        url:"http://localhost:3002/send", 
+        data:  this.state
+      }).then((response)=>{
+        if (response.data.status === 'success') {
+          alert("Message Sent."); 
+          console.log("Message data", this.state);
+          this.resetForm()
+        } else if(response.data.status === 'fail') {
+          alert("Message failed to send.")
+        }
+      })
+    }
+
+    resetForm(){
+      this.setState({name: "", email: "", message: ""})
+    }
   render() {
     return (
       <div className="contact-body">
         <Grid className="contact-grid">
-          <Cell col={6}>
+          <Cell col={4}>
             <h2>Book your tour today!</h2>
             <img
               src="https://st.depositphotos.com/1636803/2416/i/950/depositphotos_24169067-stock-photo-sign-a-green-cross.jpg"
@@ -23,7 +55,7 @@ class Contact extends Component {
             <p style={{ width: '75%', margin: 'auto', paddingTop: '1em' }}>Flying solo? No problem. Check out our message board to connect with others looking to book tours in your area. No one wants to fly alone!</p>
 
           </Cell>
-          <Cell col={6}>
+          <Cell col={4}>
             <h2>Contact Us</h2>
             <hr />
 
@@ -61,10 +93,38 @@ class Contact extends Component {
               </List>
             </div>
           </Cell>
+          <Cell col={4} id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+          <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input type="text" className="form-control" id="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
+          </div>
+          <div className="form-group">
+              <label htmlFor="exampleInputEmail1">Email address</label>
+              <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
+          </div>
+          <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
+          </div>
+          <button type="submit" className="btn btn-primary">Submit</button>
+          </Cell>
         </Grid>
       </div>
-    )
+    );
   }
+
+  onNameChange(event) {
+    this.setState({name: event.target.value})
+  }
+
+  onEmailChange(event) {
+    this.setState({email: event.target.value})
+  }
+
+  onMessageChange(event) {
+    this.setState({message: event.target.value})
+  }
+
 }
 
 export default Contact;
