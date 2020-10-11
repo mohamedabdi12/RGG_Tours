@@ -18,10 +18,12 @@ export default function Review({ bookingInfo }) {
                 </Grid>
                 <Grid item xs={12}>
                 <Typography variant="h6" gutterBottom>
+               
                 </Typography>
                 </Grid>
                 <Grid item xs={12}>
                 <Typography variant="h6" gutterBottom>
+         
                     {/* Region and Type  {bookingInfo.bookingRegion} at {bookingInfo.bookingType} */}
                 </Typography>
                 </Grid>

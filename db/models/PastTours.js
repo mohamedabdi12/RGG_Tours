@@ -33,7 +33,7 @@ const linkSchema = new Schema({
 const tourSchema = new Schema({
     region: {
         type: String,
-        enum: regions.map(({id}) => id)
+        enum: regions.map(({ id }) => id)
     },
     title: {
         type: String,
@@ -62,8 +62,8 @@ const tourSchema = new Schema({
     });
 
 tourSchema.statics.regions = regions
-tourSchema.statics.isValidRegion = function(region) {
-    return regions.some(({id}) => id === region);
+tourSchema.statics.isValidRegion = function (region) {
+    return regions.some(({ id }) => id === region);
 }
 
 const Tour = mongoose.model("PastTours", tourSchema);
