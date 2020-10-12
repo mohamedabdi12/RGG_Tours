@@ -2,14 +2,6 @@ html, body {
     min-height: 100vh;
   }
 
-
-.bookingForm
-{
-    margin: 15rem;
-    padding: 15rem;
-    display: inline;
-}
-
 .firstname,
 .name,
 .email,

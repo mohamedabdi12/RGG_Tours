@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CssBaseline, Paper, Stepper, Step, StepLabel, Typography, Button } from '@material-ui/core';
+import { CssBaseline, Paper, Stepper, Step, StepLabel, Typography } from '@material-ui/core';
 
 import BookingInfoForm from "./BookingInfoForm"
 import PaymentForm from './PaymentForm';
@@ -88,8 +88,12 @@ const BookingForm = () => {
             content = <Review regions={regions} bookingInfo={bookingInfo} />
             break;
         }
-        case 3: {
+        case steps.length: {
             content = <OrderPlaced orderId={bookingInfo.bookingNumber} />
+            break;
+        }
+        default: {
+            content = <Review regions={regions} bookingInfo={bookingInfo} />
             break;
         }
     }
@@ -98,10 +102,10 @@ const BookingForm = () => {
         content = (<>
             {content}
             <div className={classes.buttons}>
-                <BackButton onClick={handleBack} className={classes.button} />
+                <BackButton activeStep={activeStep} onClick={handleBack} className={classes.button} />
                 <NextButton
                     canProgress={canProgress}
-                    isLast={activeStep !== steps.length - 1}
+                    isLast={activeStep === steps.length - 1}
                     onClick={handleNext}
                     className={classes.button}
                 />
@@ -110,9 +114,9 @@ const BookingForm = () => {
     }
 
     return (
-        <div className="bookingForm">
+        <>
             <CssBaseline />
-            <main className={classes.layout}>
+            <section className={classes.layout}>
                 <Paper className={classes.paper}>
                     <Typography component="h1" variant="h4" align="center">
                         Checkout
@@ -126,8 +130,8 @@ const BookingForm = () => {
                     </Stepper>
                     {content}
                 </Paper>
-            </main>
-        </div>)
+            </section>
+        </>)
 }
 
 export default BookingForm;
