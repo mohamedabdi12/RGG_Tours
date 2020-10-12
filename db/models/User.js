@@ -19,7 +19,7 @@ const userSchema = new Schema({
     email: {
         type: String,
         unique: true
-    },
+    },// this id is the google id and the token we get from google. sing in with google, redirected to separate page, user confirms, then redirected back to our site with the google id and token. our front end sends it to our backend, then our back end sends it to google and google determines if its valid, then we create a new row in db, and we send them a jwt with their session info, ID, and email (payload) 
     auth: {
         type: {
             google: {

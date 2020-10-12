@@ -5,36 +5,36 @@ import axios from "axios";
 
 
 class Contact extends Component {
-    constructor(props) {
-      super();
-      this.state = {
-        name: '',
-        email: '',
-        message: ''
+  constructor(props) {
+    super();
+    this.state = {
+      name: '',
+      email: '',
+      message: ''
+    }// this.handlesubmit = this.handlesubmit.bind(this)
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    axios({
+      method: "POST",
+      url: "http://localhost:3002/send",
+      data: this.state
+    }).then(function (response) {
+      if (response.data.status === 'success') {
+        alert("Message Sent.");
+        console.log("Message data", this.state);
+        this.resetForm()
+      } else if (response.data.status === 'fail') {
+        alert("Message failed to send.")
       }
-    }
+    })
+  }
 
-    handleSubmit(e) {
-      e.preventDefault();
-    
-      axios({
-        method: "POST", 
-        url:"http://localhost:3002/send", 
-        data:  this.state
-      }).then(function(response){
-        if (response.data.status === 'success') {
-          alert("Message Sent."); 
-          console.log("Message data", this.state);
-          this.resetForm()
-        } else if(response.data.status === 'fail') {
-          alert("Message failed to send.")
-        }
-      })
-    }
-
-    resetForm(){
-      this.setState({name: "", email: "", message: ""})
-    }
+  resetForm() {
+    this.setState({ name: "", email: "", message: "" })
+  }
   render() {
     return (
       <div className="contact-body">
@@ -94,21 +94,21 @@ class Contact extends Component {
             </div>
           </Cell>
           <Cell>
-            <form col={4} id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
-          <div className="form-group">
-              <label htmlFor="name" style={{ fontSize: '20px', fontFamily: 'Anton' }}>Name</label>
-              <input type="text" className="form-control" id="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
-          </div>
-          <div className="form-group">
-              <label htmlFor="exampleInputEmail1" style={{ fontSize: '20px', fontFamily: 'Anton' }}>Email address</label>
-              <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
-          </div>
-          <div className="form-group">
-              <label htmlFor="message" style={{ fontSize: '20px', fontFamily: 'Anton' }}>Message</label>
-              <div>
-              <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} /> </div>
-          </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+            <form col={4} id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST" autocomplete="on">
+              <div className="form-group">
+                <label htmlFor="name" style={{ fontSize: '20px', fontFamily: 'Anton' }}>Name</label>
+                <input type="text" className="form-control" id="name" autocomplete="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1" style={{ fontSize: '20px', fontFamily: 'Anton' }}>Email address</label>
+                <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message" style={{ fontSize: '20px', fontFamily: 'Anton' }}>Message</label>
+                <div>
+                  <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} /> </div>
+              </div>
+              <button type="submit" className="btn btn-primary">Submit</button>
             </form>
           </Cell>
         </Grid>
@@ -117,18 +117,18 @@ class Contact extends Component {
   }
 
   onNameChange(event) {
-    this.setState({name: event.target.value})
+    this.setState({ name: event.target.value })
   }
 
   onEmailChange(event) {
-    this.setState({email: event.target.value})
+    this.setState({ email: event.target.value })
   }
 
   onMessageChange(event) {
-    this.setState({message: event.target.value})
+    this.setState({ message: event.target.value })
   }
 
-  
+
 }
 
 export default Contact;
