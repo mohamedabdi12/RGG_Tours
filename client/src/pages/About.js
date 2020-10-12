@@ -21,6 +21,19 @@ class About extends Component {
               <hr/>
 
               <p>Serving you, in case you get over served!</p>
+              <p>Serving you, in case you get over served!</p>
+
+
+              <hr/>
+
+              <p>Serving you, in case you get over served!</p>
+              <p>Serving you, in case you get over served!</p>
+
+
+              <hr/>
+
+              <p>Serving you, in case you get over served!</p>
+              <p>Serving you, in case you get over served!</p>
 
               <SocialLinks />
         
