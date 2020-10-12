@@ -6,10 +6,6 @@ const tourBookingSchema = new Schema({
         type: String,
         required: true
     },
-    bookingDate: {
-        type: Date,
-        required: true
-    },
     bookingTime: {
         type: Date,
         required: true
@@ -17,12 +13,18 @@ const tourBookingSchema = new Schema({
     bookingRegion: {
         type: String,
         enum: mongoose.model("PastTours").regions.map(({ id }) => id),
-
+        required: true
     },
     bookingType: {
         type: String,
-        enum: ['Winery', 'Brewery', 'Dispensary', "Combo", "Surprise Me"],
-
+        enum: [
+            "Winery",
+            "Brewery",
+            "Dispensary",
+            "Combo",
+            "Surprise Me!"
+        ],
+        required: true
     },
     userId: {
         type: Schema.Types.ObjectId,
