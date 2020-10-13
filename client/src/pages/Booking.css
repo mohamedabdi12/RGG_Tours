@@ -1,0 +1,10 @@
+.booking-grid {
+  background: #833ab4;  /* Super old browsers */
+  background: -webkit-linear-gradient(to right, purple, gold, green);  /* Chrome & Safari (Old) */
+  background: linear-gradient(to right, purple, gold, green); /* All the newest version of browsers */
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center; 
+}

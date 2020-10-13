@@ -12,7 +12,7 @@ const TourCard = (props) => {
     const { title, description, bgImg, links } = props;
 
     return (
-        <Card className="tour-card" shadow={5}>
+        <Card className="tour-card" shadow={5} spacing={3}>
             <CardTitle style={{ backgroundImage: `url(${bgImg})` }} >{title}</CardTitle>
             <CardText>{description}</CardText>
             <CardActions border>

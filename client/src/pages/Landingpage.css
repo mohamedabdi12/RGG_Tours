@@ -1,0 +1,89 @@
+.landing-grid {
+  background: #833ab4;  /* Super old browsers */
+  background: -webkit-linear-gradient(to right, purple, gold, green);  /* Chrome & Safari (Old) */
+  background: linear-gradient(to right, purple, gold, green); /* All the newest version of browsers */
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
+.banner-text {
+  background-color: black;
+  opacity: .8;
+  width: 75%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.banner-text h1 {
+  font-size: 66px;
+  font-weight: bold;
+  color: white;
+}
+
+.banner-text hr {
+  border-top: 5px dotted white;
+  width: 50%;
+  margin: auto;
+}
+
+.banner-text p {
+  color: white;
+  font-size: 20px;
+  padding: 1em;
+}
+
+.span-winery {
+  font-size: x-large;
+  color: red;
+  text-shadow: 1px 1px white;
+}
+
+.span-winery:hover {
+  color: rgb(212, 2, 2);
+  font-size: 2.25rem;
+}
+
+.span-book,
+.span-here,
+.span-brewery {
+  font-size: x-large;
+  color: goldenrod;
+  text-shadow: 1px 1px white;
+}
+
+.span-book:hover,
+.span-here:hover,
+.span-brewery:hover {
+  color: yellow;
+  font-size: 2.25rem;
+  text-shadow: 1px 1px white;
+}
+
+.span-dispensary {
+  font-size: x-large;
+  color: green;
+  text-shadow: 1px 1px white;
+}
+
+.span-dispensary:hover {
+  color: greenyellow;
+  font-size: 2.25rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+}
+
+.social-links i {
+  color: white;
+  font-size: 5em;
+  padding: 8px;
+}

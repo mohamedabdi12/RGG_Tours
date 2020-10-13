@@ -14,7 +14,7 @@ const TourGrid = (props) => {
     return (
         <Grid>
             <Cell col={12}>
-                <div className="content">
+                <div className="content" className="tours-grid">
                     {!!tours && tours.map(({ title, description, bgImg, links }, i) => (<TourCard key={i} title={title} description={description} bgImg={bgImg} links={links} />))}
                 </div>
             </Cell>

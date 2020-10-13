@@ -1,0 +1,10 @@
+.tours-grid {
+  display: flex;
+  margin: 3rem;
+  padding: 2rem;
+}
+
+.tour-img {
+  height: 250px;
+  padding-top: 5em;
+}

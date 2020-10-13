@@ -3,6 +3,8 @@ import { Grid, Cell } from 'react-mdl';
 
 import SocialLinks from "../components/SocialLinks";
 
+import "./About.css";
+
 class About extends Component {
   render() {
     return(
@@ -20,21 +22,10 @@ class About extends Component {
 
               <hr/>
 
-              <p>Serving you, in case you get over served!</p>
-              <p>Serving you, in case you get over served!</p>
-
-
-              <hr/>
-
-              <p>Serving you, in case you get over served!</p>
-              <p>Serving you, in case you get over served!</p>
-
-
-              <hr/>
-
-              <p>Serving you, in case you get over served!</p>
-              <p>Serving you, in case you get over served!</p>
-
+              <p>Our all inclusive upfront pricing makes your event easy to manage!<br></br>So what do you get? <br></br><br></br> <span className="six-hour-tour">6 hour tours for $500</span><br></br>
+              (up to 5 people)<br></br></p>
+              <p> More people, no problem! $800 for up to 10 people!</p>
+             
               <SocialLinks />
         
             </div>
