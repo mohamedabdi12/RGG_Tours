@@ -1,6 +1,6 @@
 import React from 'react';
 import DateFnsUtils from '@date-io/date-fns';
-import { Grid, Typography, TextField } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { KeyboardTimePicker, KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 export default function DateAndTimePickers({ bookingInfo, setBookingInfo }) {
