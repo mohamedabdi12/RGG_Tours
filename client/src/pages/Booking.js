@@ -8,7 +8,7 @@ import "./Booking.css";
 const clientId = "205158470591-frud5g1h9dmquka6n1e3mhju7rglm33i.apps.googleusercontent.com";
 
 const Booking = (props) => {
-  const onAuthSuccess = async ({accessToken}) => {
+  const onAuthSuccess = async ({ accessToken }) => {
     const { setUser } = props;
     try {
       const res = await API.authenticate({ access_token: accessToken })
@@ -24,30 +24,31 @@ const Booking = (props) => {
     console.log('auth failure returns: ', res);
   }
 
+  let content = (<></>);
+  if (props.user == null) {
+    content = (<>
+      <GoogleLogin
+        clientId={clientId}
+        //append client ID to user 
+        buttonText="Login with Google"
+        onSuccess={onAuthSuccess}
+        onFailure={onAuthFailure}
+        cookiePolicy={'single_host_origin'}
+      />
+    </>);
+  } else {
+    content = (<>
+      <h1>Welcome {props.user.fullName}</h1>
+      {/* <h2>Logged in as: {props.user.email}</h2> */}
+      <BookingForm />
+    </>)
+  }
+
   return (
     <div style={{ width: '100%', margin: 'auto' }}>
       <Grid className="booking-grid">
         <Cell col={12}>
-          {
-            props.user === null ? (
-              <>
-                <GoogleLogin
-                  clientId={clientId}
-                  //append client ID to user 
-                  buttonText="Login with Google"
-                  onSuccess={onAuthSuccess}
-                  onFailure={onAuthFailure}
-                  cookiePolicy={'single_host_origin'}
-                />
-              </>
-            ) : (
-                <>
-                  <h1>Welcome {props.user.fullName}</h1>
-                  {/* <h2>Logged in as: {props.user.email}</h2> */}
-                  <BookingForm />
-                </>
-              )
-          }
+          {content}
         </Cell>
       </Grid>
     </div>
