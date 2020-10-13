@@ -26,7 +26,7 @@ export default function RegionAndTypePickers({ regions, bookingInfo, setBookingI
                         id="select"
                         onChange={(e) => setBookingInfo({ ...bookingInfo, bookingRegion: +e.target.value / 10 - 2 })}
                     >
-                        <MenuItem value="">
+                        <MenuItem value={regions[Object.keys(regions)] + ""}>
                             <em>None</em>
                         </MenuItem>
                         {regions.map(({ text, id }, i) => (<MenuItem value={(i + 2) + "0"} key={i}>{text}</MenuItem>))}
@@ -43,7 +43,7 @@ export default function RegionAndTypePickers({ regions, bookingInfo, setBookingI
                         id="demo-controlled-open-select"
                         onChange={(e) => setBookingInfo({ ...bookingInfo, bookingType: tourTypes[+e.target.value / 10 - 2] })}
                     >
-                        <MenuItem value="">
+                        <MenuItem value={regions[Object.keys(regions)] + ""}>
                             <em>None</em>
                         </MenuItem>
                         {tourTypes.map((text, i) => (<MenuItem value={(i + 2) + "0"} key={i}>{text}</MenuItem>))}

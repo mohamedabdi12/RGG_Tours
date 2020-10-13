@@ -3,7 +3,7 @@ import { Grid, Cell } from 'react-mdl';
 import { GoogleLogin } from 'react-google-login';
 import API from "../utils/API";
 import BookingForm from "../components/BookingForm";
-
+import "./Booking.css";
 
 const clientId = "205158470591-frud5g1h9dmquka6n1e3mhju7rglm33i.apps.googleusercontent.com";
 

@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 
 function hyphenate(str) {
     const subIds = [];
-    for (let i = 0; i < str.length; i += 4) {
+    for (let i = 0; i < str.length-12; i += 4) {
         subIds.push(str.substr(i, 4));
     }
     return subIds.join("-");

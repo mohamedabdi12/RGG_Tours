@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Cell, List, ListItem, ListItemContent } from 'react-mdl';
 import axios from "axios";
 
-
+import "./Contact.css";
 
 class Contact extends Component {
   constructor(props) {
@@ -94,10 +94,10 @@ class Contact extends Component {
             </div>
           </Cell>
           <Cell>
-            <form col={4} id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST" autocomplete="on">
+            <form col={4} id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST" autoComplete="on">
               <div className="form-group">
                 <label htmlFor="name" style={{ fontSize: '20px', fontFamily: 'Anton' }}>Name</label>
-                <input type="text" className="form-control" id="name" autocomplete="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
+                <input type="text" className="form-control" id="name" autoComplete="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
               </div>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1" style={{ fontSize: '20px', fontFamily: 'Anton' }}>Email address</label>

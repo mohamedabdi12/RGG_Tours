@@ -5,6 +5,8 @@ import API from "../utils/API";
 
 import TourGrid from "../components/TourGrid";
 
+import "./Tours.css"
+
 const Tours = () => {
   const [regions, setRegions] = useState();
   const [activeTab, setActiveTab] = useState(0);
