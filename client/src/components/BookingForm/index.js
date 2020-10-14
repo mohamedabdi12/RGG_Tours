@@ -89,7 +89,7 @@ const BookingForm = () => {
             break;
         }
         case steps.length: {
-            content = <OrderPlaced orderId={bookingInfo.bookingNumber} />
+            content = <OrderPlaced orderId={bookingInfo.bookingNumber} orderName={bookingInfo.bookingName } orderType={bookingInfo.bookingType } regions={regions} bookingInfo={bookingInfo} orderTime={bookingInfo.bookingTime.toString() }/>
             break;
         }
         default: {
