@@ -22,9 +22,8 @@ class About extends Component {
 
               <hr/>
 
-              <p>Our all inclusive upfront pricing makes your event easy to manage!<br></br>So what do you get? <br></br><br></br> <span className="six-hour-tour">6 hour tours for $500</span><br></br>
-              (up to 5 people)<br></br></p>
-              <p> More people, no problem! $800 for up to 10 people!</p>
+              <p>Our all inclusive upfront pricing makes your event easy to manage!<br></br>No matter which type of tour you you want to take, we have you covered.<br></br>So what do you get? <br></br><br></br> <span className="six-hour-tour">6 Hour Tours Only $500</span><br></br>
+              (up to 5 people)<br></br><br></br> More people, no problem!<br></br><br></br> <span className="eight-hour-tour">$800 for up to 10 people!</span></p>
              
               <SocialLinks />
         

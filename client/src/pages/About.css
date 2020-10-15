@@ -25,12 +25,19 @@
 }
 
 
-.six-hour-tour {
-     color: yellow;
-    font-size: 2.25rem;
+.six-hour-tour,
+.eight-hour-tour {
+    color: goldenrod;
+    font-size: 3.25rem;
     text-shadow: 1px 1px white;
   }
 
+  .six-hour-tour:hover,
+  .eight-hour-tour:hover {
+    color: yellow;
+    font-size: 3.75rem;
+    text-shadow: 1px 1px white;
+  }
 
 
 .social-links {
