@@ -9,6 +9,7 @@ export default function DateAndTimePickers({ bookingInfo, setBookingInfo }) {
             <Grid container justify="center" spacing={5}>
                 <Grid item>
                     <KeyboardDatePicker
+                       
                         disableToolbar
                         variant="inline"
                         style={{ width: '25ch' }}

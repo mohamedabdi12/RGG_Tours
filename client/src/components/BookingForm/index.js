@@ -15,7 +15,7 @@ import "./style.css";
 
 import API from "../../utils/API";
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Booking Details', 'Payment details', 'Review your order'];
 
 const BookingForm = () => {
     const [regions, setRegions] = useState([]);
@@ -89,7 +89,7 @@ const BookingForm = () => {
             break;
         }
         case steps.length: {
-            content = <OrderPlaced orderId={bookingInfo.bookingNumber} />
+            content = <OrderPlaced orderId={bookingInfo.bookingNumber} orderName={bookingInfo.bookingName } orderType={bookingInfo.bookingType } regions={regions} bookingInfo={bookingInfo} orderTime={bookingInfo.bookingTime.toString() }/>
             break;
         }
         default: {
