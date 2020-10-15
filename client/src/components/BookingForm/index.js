@@ -15,7 +15,7 @@ import "./style.css";
 
 import API from "../../utils/API";
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Booking Details', 'Payment details', 'Review your order'];
 
 const BookingForm = () => {
     const [regions, setRegions] = useState([]);
