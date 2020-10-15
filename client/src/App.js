@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="demo-big-content">
         <Layout>
-          <Header className="header-color" title={<Link style={{ textDecoration: 'none', color: 'white' }} to="/">Reds Gold and Greens</Link>} scroll>
+          <Header className="header-color" title={<Link style={{ textDecoration: 'none', color: 'white' }} to="/">Reds, Gold & Greens</Link>} scroll>
             <Navigation>
               <Link to="/about">About</Link>
               <Link to="/tours">Tours</Link>
@@ -27,7 +27,7 @@ class App extends Component {
             </Navigation>
           </Drawer>
           <Content>
-            
+
             <Form />
             <div className="page-content" />
             <PageSwitch />
