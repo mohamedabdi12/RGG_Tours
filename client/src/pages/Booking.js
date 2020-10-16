@@ -5,7 +5,7 @@ import API from "../utils/API";
 import BookingForm from "../components/BookingForm";
 import "./Booking.css";
 
-const clientId = process.env.NODE_ENV === "production" ? "" : "205158470591-frud5g1h9dmquka6n1e3mhju7rglm33i.apps.googleusercontent.com";
+const clientId = process.env.NODE_ENV === "production" ? process.env.REACT_APP_AUTH_GOOGLE_CLIENT_ID : "205158470591-frud5g1h9dmquka6n1e3mhju7rglm33i.apps.googleusercontent.com";
 
 const Booking = (props) => {
   const onAuthSuccess = async ({ accessToken }) => {
