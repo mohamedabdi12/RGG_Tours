@@ -3,7 +3,7 @@ const { Strategy: GoogleTokenStrategy } = require("passport-google-token");
 const { Strategy: JwtStrategy } = require("passport-jwt");
 
 const db = require("../db");
-// Passport makes it easy to utilize many different authentication strategies. 
+// Passport makes it easy to utilize many different authentication strategies. For log in.
 passport.use(new GoogleTokenStrategy({
     clientID: process.env.AUTH_GOOGLE_CLIENT_ID,
     clientSecret: process.env.AUTH_GOOGLE_CLIENT_SECRET
@@ -26,14 +26,11 @@ passport.use(new GoogleTokenStrategy({
     } catch (err) {
         done(err);
     }
-})); // http only cookie. cannot be accessed through javascript on the client (on the server, but not on the client) which is why it's secure.
+})); // http only cookie. Cannot be accessed through javascript on the client (on the server, but not on the client) which is why it's secure. Checking for session cookies as we define.
 passport.use(
     new JwtStrategy(
         {
-            jwtFromRequest: req => {
-                if (!req.session.jwt) return null;
-                return req.session.jwt;
-            },
+            jwtFromRequest: req => req.session.jwt,
             secretOrKey: process.env.AUTH_JWT_PRIVATE_KEY,
             algorithms: ['HS256'],
             ignoreExpiration: process.env.NODE_ENV !== 'production',

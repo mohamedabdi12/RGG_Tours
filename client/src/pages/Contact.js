@@ -50,8 +50,10 @@ class Contact extends Component {
               alt="Big Wine Glass"
               style={{ height: "150px" }}
             />
-            <p style={{ width: "100%", margin: "auto", paddingTop: "1em" }}>
-              We specialize in winery, brewery and dispensary tours. Book now or contact us today to reserve your tour!
+
+             <p style={{ width: "100%", margin: "auto", paddingTop: "1em" }}>
+              We specialize in winery, brewery and dispensary tours. <br></br>Book now or contact us today to reserve your tour!
+
             </p> 
             <p style={{ width: "100%", margin: "auto", paddingTop: "1em" }}>
               We will contact you with all the details once your booking is confirmed.

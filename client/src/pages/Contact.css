@@ -49,6 +49,10 @@
 .contact-grid p {
   font-family: "Oxygen", sans-serif;
   font-weight: bold;
+  color: white;
+  font-size: 20px;
+  padding: 1em;
+  margin: 0, 19px;
 }
 
 .contact-grid hr {
