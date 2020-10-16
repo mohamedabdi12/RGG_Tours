@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Cell, List, ListItem, ListItemContent } from "react-mdl";
+import { Grid, Cell } from "react-mdl";
 import axios from "axios";
 
 import "./Contact.css";
@@ -50,8 +50,10 @@ class Contact extends Component {
               alt="Big Wine Glass"
               style={{ height: "150px" }}
             />
+
              <p style={{ width: "100%", margin: "auto", paddingTop: "1em" }}>
               We specialize in winery, brewery and dispensary tours. <br></br>Book now or contact us today to reserve your tour!
+
             </p> 
             <p style={{ width: "100%", margin: "auto", paddingTop: "1em" }}>
               We will contact you with all the details once your booking is confirmed.
@@ -89,7 +91,7 @@ class Contact extends Component {
                   htmlFor="exampleInputEmail1"
                   style={{ fontSize: "20px", fontFamily: "Anton" }}
                 >
-                  Email address
+                  Email
                 </label>
                 <input
                   type="email"

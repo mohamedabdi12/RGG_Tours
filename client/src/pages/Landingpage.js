@@ -27,7 +27,7 @@ class Landingpage extends Component {
               <hr />
 
               <p>RGG Tours is your premium tour operator in Oregon.<br></br> We specialize in <span className="span-winery">Winery</span>, <span className="span-brewery">Brewery</span>, and <span className="span-dispensary">Dispensary</span> tours throughout the state.</p>
-              <p><span className="span-book">Book Now!</span>  -- Find out more about our tours <span className="span-here">here</span>.</p>
+              <p><span className="span-book"><a href="http://localhost:3000/booking">Book Now!</a></span>  -- Find out more about our tours <span className="span-here"> <a href="http://localhost:3000/about">here!</a></span>.</p>
               <p>We're here to make sure you have a great time!</p>
 
 
