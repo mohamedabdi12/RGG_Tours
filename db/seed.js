@@ -24,10 +24,10 @@ const tours = [
   {
     region: "nw_portland",
     title: "Dispensery Tour in NW!!",
-    description: "Best night to never remember!",
+    description: "Best night I can't remember!",
     bgImg: "http://portlanddispensary.net/wp-content/uploads/2015/07/OregonWeederySample4.png",
     links: [
-      { text: "Not sure what else happed...", href: "http://portlanddispensary.net/" },
+      { text: "Not sure what else happened...", href: "http://portlanddispensary.net/" },
     ]
   },
   {
