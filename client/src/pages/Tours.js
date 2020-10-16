@@ -18,7 +18,7 @@ const Tours = () => {
     });
   }, []);
 
-  useEffect(() =>{
+  useEffect(() => {
     if (!regions) return;
     API.getTours(regions[activeTab].id).then(res => {
       setTours(() => res.data);
