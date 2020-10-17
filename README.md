@@ -79,9 +79,8 @@ If you have any questions about this project or would like to collaborate with t
 ![image](https://user-images.githubusercontent.com/63215148/96328760-2f515780-0ffb-11eb-8e18-4489d3e04ca7.png)
 
 
-
 **Booking Page**
-
+![image](https://user-images.githubusercontent.com/63215148/96328811-adadf980-0ffb-11eb-9ca5-cb0274e6456f.png)
 
 
 
