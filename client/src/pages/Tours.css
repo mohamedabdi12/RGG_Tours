@@ -8,3 +8,7 @@
   height: 250px;
   padding-top: 5em;
 }
+
+.mdl-card__title-text {
+  text-shadow: 2px 2px black;
+}
