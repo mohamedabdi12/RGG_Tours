@@ -80,6 +80,7 @@ If you have any questions about this project or would like to collaborate with t
 
 
 **Booking Page**
+
 ![image](https://user-images.githubusercontent.com/63215148/96328880-712ecd80-0ffc-11eb-8b3e-95bcd69c1432.png)
 
 
